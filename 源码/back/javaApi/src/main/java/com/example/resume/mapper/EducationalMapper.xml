@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.resume.mapper.EducationalMapper">
+    <select id="selectAllData" resultType="com.example.resume.entity.EducationalInformation">
+        select * from `educational_information`
+    </select>
+    <select id="selectByName" resultType="com.example.resume.entity.EducationalInformation">
+        select * from `educational_information`
+        where `name` = #{name}
+    </select>
+    <select id="selectById" resultType="com.example.resume.entity.EducationalInformation">
+        select * from `educational_information`
+        where `id` = #{id}
+    </select>
+    <insert id="addOneData" parameterType="com.example.resume.entity.EducationalInformation">
+        insert into `educational_information`(`id`,`name`,`major`,`education`,`university`,`schoolTime`,`schoolLevel`)
+        values(#{id},#{name},#{major},#{education},#{university},#{schoolTime},#{schoolLevel})
+    </insert>
+    <delete id="deleteByName">
+        delete from `educational_information`
+        where `name` = #{name}
+    </delete>
+    <delete id="deleteById">
+        delete from `educational_information`
+        where `id` = #{id}
+    </delete>
+    <update id="updateOneData" parameterType="com.example.resume.entity.EducationalInformation">
+        update `educational_information`
+        set `major`=#{major},`education`=#{education},
+            `university`=#{university},`schoolTime`=#{schoolTime},`schoolLevel`=#{schoolLevel}
+        where `name`=#{name}
+    </update>
+
+</mapper>

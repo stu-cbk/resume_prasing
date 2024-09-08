@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.resume.mapper.SkillMapper">
+    <select id="selectAllData" resultType="com.example.resume.entity.SkillInformation">
+        select * from `skill_information`
+    </select>
+    <select id="selectByName" resultType="com.example.resume.entity.SkillInformation">
+        select * from `skill_information`
+        where `name` = #{name}
+    </select>
+    <select id="selectById" resultType="com.example.resume.entity.SkillInformation">
+        select * from `skill_information`
+        where `id` = #{id}
+    </select>
+    <insert id="addOneData" parameterType="com.example.resume.entity.SkillInformation">
+        insert into `skill_information`(`id`,`name`,`mandarin`,`english`,`computer`,
+                                        `c`,`java`,`python`,`graphicDesign`,`officeSoftware`,
+                                        `word`,`excel`,`ppt`,`pr`,`communicate`,
+                                        `act`,`logic`,`ai`,`reward`)
+        values(#{id},#{name},#{mandarin},#{english},#{computer},#{c},
+               #{java},#{python},#{graphicDesign},#{officeSoftware},#{word},
+               #{excel},#{ppt},#{pr},#{communicate},#{act},#{logic},#{ai},#{reward})
+    </insert>
+    <delete id="deleteByName">
+        delete from `skill_information`
+        where `name` = #{name}
+    </delete>
+    <delete id="deleteById">
+        delete from `skill_information`
+        where `id` = #{id}
+    </delete>
+    <update id="updateOneData" parameterType="com.example.resume.entity.SkillInformation">
+        update `skill_information`
+        set `mandarin`=#{mandarin},`english`=#{english},`computer`=#{computer},
+            `c`=#{c},`java`=#{java},`python`=#{python},`graphicDesign`=#{graphicDesign},
+            `officeSoftware`=#{officeSoftware},`word`=#{word},`excel`=#{excel},`ppt`=#{ppt},
+            `pr`=#{pr},`communicate`=#{communicate},`act`=#{act},`logic`=#{logic},`ai`=#{ai},`reward`=#{reward}
+        where `name`=#{name}
+    </update>
+
+</mapper>

@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>文件上传</title>
+</head>
+<body>
+<form action="/file/upload" method="post" enctype="multipart/form-data">
+    <!-- 添加multiple属性,可以按住ctrl键多选文件-->
+    <input type="file" multiple name="file"><br><br>
+    <input type="submit" value="上传">
+</form>
+</body>
+</html>

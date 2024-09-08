@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.resume.mapper.WorkMapper">
+    <select id="selectAllData" resultType="com.example.resume.entity.WorkInformation">
+        select * from `work_information`
+    </select>
+    <select id="selectByName" resultType="com.example.resume.entity.WorkInformation">
+        select * from `work_information`
+        where `name` = #{name}
+    </select>
+    <select id="selectById" resultType="com.example.resume.entity.WorkInformation">
+        select * from `work_information`
+        where `id` = #{id}
+    </select>
+    <insert id="addOneData" parameterType="com.example.resume.entity.WorkInformation">
+        insert into `work_information`(`id`,`name`,`targetJob`,`jobs`,`workExperience`,`companies`,
+            `engineer`,`finance`,`design`,`manager`,`market`,`hospital`,`edit`,`elseJob`)
+        values(#{id},#{name},#{targetJob},#{jobs},#{workExperience},#{companies},
+               #{engineer},#{finance},#{design},#{manager},#{market},#{hospital},#{edit},#{elseJob})
+    </insert>
+    <delete id="deleteByName">
+        delete from `work_information`
+        where `name` = #{name}
+    </delete>
+    <delete id="deleteById">
+        delete from `work_information`
+        where `id` = #{id}
+    </delete>
+    <update id="updateOneData" parameterType="com.example.resume.entity.WorkInformation">
+        update `work_information`
+        set `targetJob`=#{targetJob},`jobs`=#{jobs},`workExperience`=#{workExperience},`companies`=#{companies},
+            `engineer`=#{engineer},`finance`=#{finance},`design`=#{design},`manager`=#{manager},`market`=#{market},
+            `hospital`=#{hospital},`edit`=#{edit},`elseJob`=#{elseJob}
+        where `name`=#{name}
+    </update>
+
+</mapper>
